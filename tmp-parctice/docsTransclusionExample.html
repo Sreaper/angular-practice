@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Example - example-directive-transclusion-production</title>
+	<script src="../common/angular/angular.js"></script>
+	<script src="transclusion.js"></script>
+</head>
+<body ng-app="docsTransclusionExample">
+<div ng-controller="Controller">
+	<input type="text" ng-model="name">
+	<my-dialog>Check out the contents, {{name}}!</my-dialog>
+</div>
+</body>
+</html>

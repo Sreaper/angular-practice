@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Example - example-directive-transclusion-scope-production</title>
+	<script src="../common/angular/angular.js"></script>
+	<script src="transclusion1.js"></script>
+</head>
+<body ng-app="docsIsoFnBindExample">
+<div ng-controller="Controller">
+	{{message}}
+	<my-dialog ng-hide="dialogIsHidden" on-close="hideDialog(message)">
+		Check out the contents, {{name}}!
+	</my-dialog>
+</div>
+</body>
+</html>
