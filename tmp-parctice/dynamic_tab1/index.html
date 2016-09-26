@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="plunker">
+<head>
+    <script src="../../common/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+    <script src="../../common/angular/ui-bootstrap-tpls-2.1.4.min.js"></script>
+    <script src="example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div ng-controller="TabsParentController">
+
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                Sure to delete?
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+
+    <uib-tabset active="active">
+        <uib-tab ng-repeat="workspace in workspaces">
+            <uib-tab-heading>
+                {{workspace.name}} <i class="glyphicon glyphicon-remove-sign" ng-click="open('sm',workspace)" ></i>
+            </uib-tab-heading>
+            <div ng-controller="TabsChildController">
+                <div>
+                    {{$parent.workspace.id}} : {{ $parent.workspace.name}}
+                </div>
+                <input type="text" ng-model="workspace.name"/>
+                <button class="btn" type="button" ng-click="open('sm',workspace)">Delete</button>
+            </div>
+        </uib-tab>
+        <uib-tab index="0" select="addWorkspace()">
+            <uib-tab-heading>
+                <i class="glyphicon glyphicon-plus"></i>
+            </uib-tab-heading>
+        </uib-tab>
+    </uib-tabset>
+</div>
+</body>
+</html>
